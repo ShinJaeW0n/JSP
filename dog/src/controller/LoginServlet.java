@@ -33,10 +33,13 @@ public class LoginServlet extends HttpServlet {
 		Member loginMember = loginService.getLoginMember(id, passwd);
 		//로그인이 성공되면 Member 객체가 넘어오고 실패하면 null이 넘어옴.
 		
+		
 		if(loginMember != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
+			session.setAttribute("member", loginMember);
 			response.sendRedirect("index.jsp");
+		//입력한 로그인, 비밀번호가 틀렸을 때
 		}else {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();

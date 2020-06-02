@@ -32,10 +32,11 @@ public class LoginDAO {
 		ResultSet rs = null;
 		try {
 			pstmt = con.prepareStatement("SELECT * FROM users WHERE id = ? AND passwd = ?");
+			//입력한 아이디 비밀번호가 맞다면!
 			pstmt.setString(1, id);
 			pstmt.setString(2, passwd);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if(rs.next()) { //여기에 아이디, 비밀번호를 넣어준다.
 				loginMember = new Member();
 				loginMember.setId(rs.getString("id"));
 				loginMember.setPasswd(rs.getString("passwd"));
@@ -62,7 +63,7 @@ public class LoginDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
+			try { //con은 1개의 객체를 가지고 계속 사용하기 때문에 여기서 닫아주지 않는다. 닫으면 못 씀.
 				if(rs != null) close(rs);
 				if(pstmt != null) close(pstmt);
 			} catch (Exception e) {

@@ -13,9 +13,8 @@ public class JdbcUtil {
 	public static Connection getConnection () {
 		Connection con = null;
 		try {
-			Context initCtx = new InitialContext();
-			Context envCtx = (Context)initCtx.lookup("java:comp/env");
-			DataSource ds = (DataSource)envCtx.lookup("jdbc/jsptest");
+			Context init = new InitialContext();
+			DataSource ds = (DataSource)init.lookup("java:comp/env/login");
 			con = ds.getConnection();
 			con.setAutoCommit(false);
 			System.out.println("connect success");
