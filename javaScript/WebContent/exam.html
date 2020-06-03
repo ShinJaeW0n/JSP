@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 while문</title>
+<!-- 정수 20에서 10까지 짝수는 블루, 홀수는 레드컬러 -->
+<style>
+	*{margin: 0;}
+	.blue{color: #00f;}
+	.red{color: #f00;}
+</style>
+<script>
+	var i = 20;
+	while(i >= 10){
+		if(i%2==0){
+			document.write("<p class = 'blue'>" + i + "<br>");
+		}else{
+			document.write("<p class = 'red'>" + i + "<br>");
+		}
+		i--;	
+	}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
