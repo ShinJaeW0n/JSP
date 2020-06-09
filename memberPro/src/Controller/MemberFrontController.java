@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -89,7 +90,17 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}  
+		}else {
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('잘못된 경로 입니다.');");
+			out.println("location.href='memberLogin.do'");
+			out.println("</script>");
+			
+			forward = new ActionForward();
+			forward.setPath("/loginForm.jsp");
+		}
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {
