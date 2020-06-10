@@ -1,0 +1,35 @@
+@import url('http://fonts.googleapis.com/css?family=Nanum+Gothic'); 
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+h1, h2, h3, h4, h5, .navbar-brand{
+	font-family: 'Jeju Gothic', sans-serif;
+} 
+
+h5{
+	font-size: 18px;
+}
+
+body{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+#header{
+	color: #ffffff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+	
+}
+
+#header small{
+	color: #cccccc;
+}
+
+.info{
+	margin-top: 3px; 
+}
+
+/*뒤에 아이콘 없애주려고.*/
+.dropdown-toggle::after{
+	content: none;
+}
